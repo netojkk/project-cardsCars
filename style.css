@@ -1,0 +1,80 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    
+}
+
+body {
+    /* height: 120vh; */
+    /* width: 100vw; */
+
+    font:18px Arial, sans-serif;
+
+    background: linear-gradient(90deg, rgba(0,45,98,1) 0%, rgba(0,0,0,1) 100%);
+}
+header {
+    margin: 2em;
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+
+.container-card {
+    /* height: 50vh; */
+    display: grid;
+    grid-template-columns: repeat(3,250px);
+    grid-template-rows: repeat(2,250px)  ;
+
+    justify-content: space-around;
+    align-content: center;
+
+    gap: 20px;
+    text-align: center;
+}
+.card {
+    /* padding: 50px; */
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 10px;
+}
+.card img {
+    background-position: center;
+    border-radius:10px 10px 0px 0px;
+    width: 100%;
+    
+}
+.card-body {
+    height: 102px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    /* padding: 10px; */
+}
+.card-title {
+    /* color: white; */
+    font: bold 20px arial, sans-serif;
+}
+.card-button  {
+    /* height: 2em;
+    width: 10em; */
+    padding: .6em;
+
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(0,45,98,1);
+    color: white;
+    font-weight: bold ;
+}
+
+@media screen and (max-width: 1024px) {
+    .container-card {
+        grid-template-columns: repeat(2,250px);
+    }
+}
+@media screen and (max-width: 768px) {
+    .container-card {
+        grid-template-columns: repeat(1,250px);
+    }
+}
