@@ -37,7 +37,7 @@ let listCars = [
 
 //ARROW FUNCTION, que faz uso do .map() para atribuir a função a todos os elementos dentro do array objeto. Passo 1, ligar com a div que mostrara os cards (ela estará vazia no html.). Passo 2, pegar a variavel que foi atribuida com a div, e adicionar pelo js o html (innerHTML) e fazer todo o HTML usando a interpolação ``, e com essa interpolação, usar as informações por meio do array, puxando tudo que for necessário, como 'titulo', 'imagem' e etc
 
-listCars.map((car) => {
+listCars.map((car, position) => {
   let cardCar = document.querySelector(".container-card");
   cardCar.innerHTML += `
     <div class="card">
@@ -50,14 +50,19 @@ listCars.map((car) => {
       
 
 
-      <a href="#" class="card-button"><i class="bi bi-search"></i></a>
+      <a href="#" class="card-button" onClick="zoomModal('${position}')" ><i class="bi bi-search"></i></a>
     
     </div>
 </div>
-    `;
-    console.log(car.description)
+    `
+
 });
 
-        // <div class="card-description">
-        // ${car.description}
-        // </div>
+function zoomModal (position){  
+  let carSelected = listCars[position];
+  document.querySelector('#nameCar').innerHTML = carSelected.name
+  document.querySelector('#descriptionModal').innerHTML = carSelected.description
+  document.querySelector('#imgModal').src = carSelected.img
+
+  new bootstrap.Modal('#zoomModal').show()
+}
